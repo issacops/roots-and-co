@@ -1,151 +1,133 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dental Kraft | Premium Dental Care in Pune - Dr. Hingorani</title>
 
   <!-- SEO Meta Tags -->
+  <title>Roots & Co. | The Architects of the Smile</title>
   <meta name="description"
-    content="Experience world-class dental care at Dental Kraft in Pune. Expert cosmetic dentistry, dental implants, smile design, and preventive care by Dr. Hingorani with 26 years of experience." />
+    content="Kochi's premier Micro-Endodontic and Biomimetic dentistry center. Dr. Bastin Cherian specializes in saving natural teeth through microscopic precision." />
   <meta name="keywords"
-    content="dentist pune, cosmetic dentistry, dental implants, smile design, koregaon park dentist, dr hingorani, dental kraft, teeth whitening pune, invisalign pune" />
-  <meta name="author" content="Dental Kraft - Dr. Hingorani" />
-  <meta name="robots" content="index, follow" />
+    content="Micro-Endodontics, Biomimetic Dentistry, Kochi, Roots & Co, Dr. Bastin Cherian, Porcelain Veneers, Smile Design" />
+  <meta name="author" content="Roots & Co." />
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dentalkraft.com/" />
-  <meta property="og:title" content="Dental Kraft | Where Precision Meets a Beautiful Smile" />
-  <meta property="og:description"
-    content="Premium dental care in Koregaon Park, Pune. Expert cosmetic dentistry, implants, and smile design. Join 90,000+ happy patients." />
-  <meta property="og:image" content="https://dentalkraft.com/og-image.jpg" />
-  <meta property="og:locale" content="en_IN" />
+  <meta property="og:title" content="Roots & Co. | Precision Meets Artistry" />
+  <meta property="og:description" content="Experience the sanctuary of modern dentistry. Where science meets soul." />
+  <meta property="og:image" content="https://rootsandco.com/og-image.jpg" />
+  <meta property="og:url" content="https://rootsandco.com" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://dentalkraft.com/" />
-  <meta name="twitter:title" content="Dental Kraft | Premium Dental Care in Pune" />
-  <meta name="twitter:description"
-    content="Where Precision Meets a Beautiful Smile. Expert dental care by Dr. Hingorani." />
-  <meta name="twitter:image" content="https://dentalkraft.com/twitter-card.jpg" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-  <!-- Fonts -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Optimized Font Loading -->
+  <!-- Fonts: Playfair Display (Serif) & Outfit (Sans) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
     rel="stylesheet">
+
+  <!-- Tailwind Config - World Class 'Organic Opulence' Theme -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['Outfit', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
           },
           colors: {
-            teal: {
-              950: '#051F22',
-              900: '#0E343A',
-              800: '#164E55',
-              700: '#237078',
-              600: '#2C8A93',
+            pearl: {
+              50: '#FDFBF7', // Ultra Warm White
+              100: '#F7F5EF', // Main Background (Warm Stone)
+              200: '#EBE8DF',
+              300: '#DED8CC',
+            },
+            espresso: {
+              800: '#4A3E38',
+              900: '#2C2420', // Primary Text (Deep Warm Brown)
+              950: '#1A1512', // Darker Contrast
+            },
+            bronze: {
+              400: '#C2B8A3', // Muted Bronze Accent
+              500: '#A89F91', // Standard Bronze
+              600: '#8C8578',
             },
             sage: {
-              50: '#F4F7F5',
-              100: '#E3EBE6',
-              200: '#C8D9CF',
-              300: '#A6C2B3',
-              900: '#2A3D32',
+              400: '#D6E0D6', // Soft Organic Green
+              500: '#B8C6B8',
+              900: '#3A4A3A',
             },
-            terracotta: {
-              400: '#F28F79',
-              500: '#E86E53',
-              600: '#C95138',
-            },
-            neutral: {
-              50: '#FDFCFB',
-              100: '#F4F2EE',
-              200: '#E6E2DC',
-              900: '#121212',
-            }
+            sand: '#F0EEE6',
           },
           backgroundImage: {
-            'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
-            'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-          },
-          animation: {
-            'spin-slow': 'spin 12s linear infinite',
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-            'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'shimmer': 'shimmer 1.5s infinite',
+            'noise': "url('/images/noise.png')", // We'll simulate this with CSS noise if image missing
+            'paper': "url('/images/paper-texture.png')",
           },
           keyframes: {
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
+            grain: {
+              '0%, 100%': { transform: 'translate(0, 0)' },
+              '10%': { transform: 'translate(-5%, -10%)' },
+              '20%': { transform: 'translate(-15%, 5%)' },
+              '30%': { transform: 'translate(7%, -25%)' },
+              '40%': { transform: 'translate(-5%, 25%)' },
+              '50%': { transform: 'translate(-15%, 10%)' },
+              '60%': { transform: 'translate(15%, 0%)' },
+              '70%': { transform: 'translate(0%, 15%)' },
+              '80%': { transform: 'translate(3%, 35%)' },
+              '90%': { transform: 'translate(-10%, 10%)' },
             },
-            shimmer: {
-              '0%': { transform: 'translateX(-100%)' },
-              '100%': { transform: 'translateX(100%)' }
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            drift: {
+              '0%': { transform: 'translate(0, 0) rotate(0deg)' },
+              '100%': { transform: 'translate(20px, 20px) rotate(2deg)' },
+            },
+            'light-leak': {
+              '0%': { opacity: 0.3, transform: 'scale(1) translate(0,0)' },
+              '50%': { opacity: 0.5, transform: 'scale(1.1) translate(2%, 2%)' },
+              '100%': { opacity: 0.3, transform: 'scale(1) translate(0,0)' },
             }
+          },
+          animation: {
+            grain: 'grain 8s steps(10) infinite',
+            float: 'float 6s ease-in-out infinite',
+            drift: 'drift 20s linear infinite alternate',
+            'light-leak': 'light-leak 10s ease-in-out infinite',
           }
         }
       }
     }
   </script>
   <style>
-    html {
-      scroll-padding-top: 100px;
-    }
-
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .perspective-1000 {
-      perspective: 1000px;
+    /* Washi Paper Texture Simulation */
+    .bg-washi {
+      background-color: #FDFBF7;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     }
 
     body {
-      background-color: #FDFCFB;
-      color: #0E343A;
+      background-color: #F7F5EF;
+      color: #2C2420;
+      overflow-x: hidden;
     }
 
     ::selection {
-      background-color: #E86E53;
-      color: white;
+      background-color: #A89F91;
+      color: #FFF;
     }
   </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25"
-  }
-}
-</script>
 </head>
 
 <body>
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
+  <!-- Logo Watermark Portal -->
+  <div id="watermark-root"></div>
 </body>
 
 </html>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../constants';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Magnetic } from './ui/Magnetic';
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,68 +18,48 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Skip to main content link for accessibility */}
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-teal-900 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">
-        Skip to main content
-      </a>
-
       <nav
-        role="navigation"
-        aria-label="Main navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4' : 'py-8'
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${isScrolled ? 'py-4 bg-pearl-100/80 backdrop-blur-md border-b border-stone-200/50' : 'py-8'}`}
       >
         <div className="px-6 md:px-12 flex items-center justify-between">
 
-          {/* Left: Menu Trigger (Pill Shape) */}
-          <button
-            onClick={() => setMobileMenuOpen(true)}
-            aria-label="Open navigation menu"
-            aria-expanded={mobileMenuOpen}
-            aria-controls="mobile-menu"
-            className={`flex items-center gap-3 px-6 py-3 rounded-full border backdrop-blur-md transition-all duration-300 group ${isScrolled
-              ? 'bg-white/80 border-neutral-300 text-teal-900 shadow-sm'
-              : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
-              }`}
-          >
-            <span className="text-[10px] uppercase tracking-[0.2em] font-bold">Menu</span>
-            <Menu size={14} className="group-hover:rotate-180 transition-transform duration-500" />
-          </button>
+          {/* Left: Menu Trigger */}
+          <Magnetic>
+            <button
+              onClick={() => setMobileMenuOpen(true)}
+              className="flex items-center gap-3 px-5 py-2 rounded-full border border-espresso-900/10 hover:border-bronze-500 transition-colors duration-300 group bg-pearl-50/50"
+            >
+              <div className="flex flex-col gap-[3px] items-end w-4 group-hover:gap-[4px] transition-all duration-300">
+                <div className="h-[1px] w-4 bg-espresso-900"></div>
+                <div className="h-[1px] w-3 bg-espresso-900 group-hover:w-4 transition-all"></div>
+                <div className="h-[1px] w-2 bg-espresso-900 group-hover:w-4 transition-all"></div>
+              </div>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-espresso-900">Menu</span>
+            </button>
+          </Magnetic>
 
           {/* Center: Logo */}
-          <a href="#" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-end group">
-            <div className="flex items-center gap-2">
-              {/* Logo Icon */}
-              <div className={`transition-colors duration-300 ${isScrolled ? 'text-terracotta-500' : 'text-white'}`}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" />
-                </svg>
-              </div>
-              <span className={`font-serif text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-300 ${isScrolled ? 'text-teal-900' : 'text-white'}`}>
-                dental<span className="font-light italic text-terracotta-500">kraft</span>
-              </span>
-            </div>
-            <span className={`text-[8px] uppercase tracking-[0.25em] font-sans font-bold transition-colors duration-300 -mt-1 mr-1 ${isScrolled ? 'text-teal-900/60' : 'text-white/60'}`}>
-              Dr. Hingorani's
-            </span>
+          <a href="#" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center group">
+            <h1 className="font-serif text-2xl md:text-3xl text-espresso-900 tracking-tight">
+              Roots <span className="italic text-bronze-500">&</span> Co.
+            </h1>
           </a>
 
-          {/* Right: Contact (Pill Shape) */}
-          <a
-            href="#book"
-            className={`hidden md:flex items-center gap-3 px-6 py-3 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold transition-all duration-300 backdrop-blur-md ${isScrolled
-              ? 'bg-teal-900 text-white hover:bg-teal-800 shadow-lg'
-              : 'bg-white text-teal-900 hover:bg-neutral-100 shadow-md'
-              }`}
-          >
-            Contact
-          </a>
+          {/* Right: Contact */}
+          <div className="hidden md:block">
+            <Magnetic>
+              <a
+                href="#contact"
+                className="flex items-center gap-3 px-6 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold border border-espresso-900 text-espresso-900 hover:bg-espresso-900 hover:text-pearl-100 transition-all duration-500"
+              >
+                Book Visit
+              </a>
+            </Magnetic>
+          </div>
 
-          {/* Mobile Right */}
           <a
-            href="#book"
-            className={`md:hidden p-3 rounded-full backdrop-blur-md ${isScrolled ? 'bg-teal-900 text-white' : 'bg-white/10 text-white border border-white/20'
-              }`}
+            href="#contact"
+            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-espresso-900 text-white"
           >
             <Phone size={16} />
           </a>
@@ -91,46 +72,52 @@ export const Navbar: React.FC = () => {
         {
           mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, clipPath: "circle(0% at 0% 0%)" }}
-              animate={{ opacity: 1, clipPath: "circle(150% at 0% 0%)" }}
-              exit={{ opacity: 0, clipPath: "circle(0% at 0% 0%)" }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-0 z-[60] bg-teal-900 text-white flex flex-col"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="fixed inset-0 z-[60] bg-pearl-100 flex flex-col"
             >
-              {/* Background Pattern */}
-              <div className="absolute inset-0 opacity-5 bg-noise pointer-events-none" />
+              {/* Texture Overlay */}
+              <div className="absolute inset-0 bg-washi opacity-50 pointer-events-none" />
 
-              <div className="relative z-10 flex justify-between items-center p-6 md:px-12 md:py-8">
-                <span className="font-serif text-2xl text-white">dental<span className="text-terracotta-500 italic">kraft</span></span>
+              <div className="relative z-10 flex justify-between items-center p-6 md:px-12 py-8">
+                <span className="font-serif text-2xl text-espresso-900">Roots & Co.</span>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+                  className="w-12 h-12 flex items-center justify-center rounded-full border border-espresso-900/10 hover:bg-espresso-900 hover:text-white transition-all duration-300 text-espresso-900"
                 >
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-bold">Close</span>
-                  <X size={14} />
+                  <X size={20} />
                 </button>
               </div>
 
-              <div className="relative z-10 flex-1 flex flex-col justify-center items-center space-y-4">
+              <div className="relative z-10 flex-1 flex flex-col justify-center items-center space-y-2">
                 {NAV_LINKS.map((link, idx) => (
-                  <div key={link.label} className="overflow-hidden">
+                  <div key={link.label} className="overflow-hidden group">
                     <motion.a
                       href={link.href}
-                      initial={{ y: 100 }}
+                      initial={{ y: "100%" }}
                       animate={{ y: 0 }}
-                      transition={{ delay: 0.3 + (idx * 0.1), duration: 0.8, ease: "easeOut" }}
+                      transition={{ delay: 0.1 + (idx * 0.1), duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block font-serif text-5xl md:text-7xl lg:text-8xl hover:italic hover:text-terracotta-500 transition-all duration-300 cursor-pointer"
+                      className="block font-serif text-4xl md:text-6xl text-espresso-900/40 hover:text-espresso-900 transition-colors duration-500 cursor-pointer text-center relative"
                     >
-                      {link.label}
+                      <span className="relative z-10">{link.label}</span>
+                      <span className="block text-[10px] sans uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 text-bronze-500 mt-2 transform translate-y-2 group-hover:translate-y-0">Explore</span>
                     </motion.a>
                   </div>
                 ))}
               </div>
 
-              <div className="relative z-10 p-6 md:px-12 md:py-8 flex justify-between text-white/40 text-[10px] uppercase tracking-[0.2em] border-t border-white/10">
-                <span>Pune, India</span>
-                <span>Est. 2024</span>
+              <div className="relative z-10 p-6 md:px-12 md:py-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-espresso-900 border-t border-espresso-900/5">
+                <div>
+                  <span className="block text-[10px] uppercase tracking-widest text-bronze-500 mb-2">Location</span>
+                  <p className="font-serif text-lg">Kochi, Kerala</p>
+                </div>
+                <div>
+                  <span className="block text-[10px] uppercase tracking-widest text-bronze-500 mb-2">Contact</span>
+                  <p className="font-serif text-lg">+91 9567 124 888</p>
+                </div>
               </div>
             </motion.div>
           )

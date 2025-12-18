@@ -1,168 +1,131 @@
-import { Testimonial, Treatment, ProcessStep, Doctor } from './types';
-import { Sparkles, Smile, ShieldCheck, HeartPulse, Stethoscope, Microscope } from 'lucide-react';
+export const BRAND_NAME = "Roots & Co.";
+export const TAGLINE = "The Architects of the Smile.";
 
 export const NAV_LINKS = [
-  { label: 'Philosophy', href: '#philosophy' },
-  { label: 'Treatments', href: '#treatments' },
-  { label: 'The Doctor', href: '#doctor' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: "The Philosophy", href: "#philosophy" },
+  { label: "The Collections", href: "#treatments" },
+  { label: "The Architects", href: "#doctor" },
+  { label: "The Journal", href: "#journal" }, // Replaced "Stories" with "Journal" for upscale feel
 ];
 
-export const PROCESS_STEPS: ProcessStep[] = [
+export const PROCESS_STEPS = [
   {
-    number: '01',
-    title: 'Understand',
-    description: 'We listen, diagnose, and map your smile using advanced imaging technology to see what eyes cannot.',
-    image: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop'
+    number: "01",
+    title: "The Blueprint",
+    description: "Every treatment begins with microscopic analysis. We map the unseen terrain of your dental anatomy before a single instrument is lifted.",
+    image: "/images/microscope-analysis.png"
   },
   {
-    number: '02',
-    title: 'Design',
-    description: 'We craft a personalized treatment plan in 3D, tailoring every curve to harmonize with your facial features.',
-    image: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2070&auto=format&fit=crop'
+    number: "02",
+    title: "Biomimetic Restoration",
+    description: "We don't patch; we rebuild. Using materials that mimic the elasticity and strength of natural dentin, we restore structural integrity from the inside out.",
+    image: "/images/biomimetic-layers.png"
   },
   {
-    number: '03',
-    title: 'Transform',
-    description: 'Gentle, precise, and minimally invasive procedures executed with artistic finesse and clinical rigor.',
-    image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop'
+    number: "03",
+    title: "Micro-Precision",
+    description: "Operating at 20x magnification allows us to preserve healthy tissue others would drill away. This is conservation, not just repair.",
+    image: "/images/precision-dentistry.png"
   },
   {
-    number: '04',
-    title: 'Maintain',
-    description: 'Regular care plans and hygiene therapies ensuring your smile remains healthy and radiant for years.',
-    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop'
-  },
+    number: "04",
+    title: "Aesthetic Harmony",
+    description: "Function dictates form. Once the foundation is solid, we curate the aesthetics to harmonize with your facial architecture.",
+    image: "/images/aesthetic-smile.png"
+  }
 ];
 
-export const TREATMENTS: Treatment[] = [
+export const TREATMENTS = [
   {
-    id: 'cosmetic',
-    title: 'Cosmetic Dentistry',
-    description: 'Veneers, bonding, and aesthetic contouring for the perfect smile.',
-    icon: Sparkles,
+    id: 1,
+    title: "Micro-Endodontics",
+    description: "The art of saving the foundation. Root canal therapy performed under high-power magnification for absolute precision and maximum preservation.",
+    icon: "Microscope"
   },
   {
-    id: 'implants',
-    title: 'Dental Implants',
-    description: 'Permanent, natural-looking solutions for missing teeth.',
-    icon: Microscope,
+    id: 2,
+    title: "Biomimetic Restoration",
+    description: "Restoring teeth to their original biomechanical strength. We bond distinct layers to mimic natural tooth structure, preventing the 'cycle of dentistry'.",
+    icon: "Layers"
   },
   {
-    id: 'smile-design',
-    title: 'Smile Designing',
-    description: 'Digital smile makeovers that harmonize with your facial structure.',
-    icon: Smile,
+    id: 3,
+    title: "Smile Architecture",
+    description: "Digital Smile Design (DSD) allowing you to test-drive your new smile. Veneers and laminates that respect the natural structure while perfecting the art.",
+    icon: "Palette"
   },
   {
-    id: 'aligners',
-    title: 'Invisible Aligners',
-    description: 'Clear, comfortable straightening without the metal braces.',
-    icon: ShieldCheck,
-  },
-  {
-    id: 'general',
-    title: 'Preventive Care',
-    description: 'Routine hygiene and checkups to keep your foundation strong.',
-    icon: HeartPulse,
-  },
-  {
-    id: 'peds',
-    title: 'Pediatric Dentistry',
-    description: 'Gentle care designed to make children love visiting the dentist.',
-    icon: Stethoscope,
-  },
+    id: 4,
+    title: "Implants & Rehabilitation",
+    description: "When preservation is no longer possible, we reconstruct. Swiss-grade implants placed with guided surgery for life-long stability.",
+    icon: "Anchor"
+  }
 ];
+
+// Doctor Types
+export interface Doctor {
+  name: string;
+  role: string;
+  experience: string;
+  bio: string;
+  image: string;
+}
 
 export const TEAM: Doctor[] = [
   {
-    name: "Dr. Dinesh Hingorani",
-    role: "Founder & Senior Dentist",
-    experience: "26 Years Exp.",
-    bio: "A senior and highly experienced Dentist with 26 years of practice. As a key member of the team, he provides comprehensive and advanced dental care, focusing on long-term patient health and treatment success.",
-    image: "/images/dr-dinesh-hingorani.jpg"
+    name: "Dr. Bastin Cherian",
+    role: "The Preservationist",
+    experience: "MDS - Conservative Dentistry & Endodontics",
+    bio: "A guardian of the natural tooth. Dr. Bastin believes that the best tooth is the one you were born with. Specializing in Micro-Endodontics, he uses extreme magnification to navigate the complex anatomy of the root canal system, saving teeth that would otherwise be lost. His approach is quiet, precise, and deeply rooted in science.",
+    image: "/images/dr-bastin.jpg" // Keeping correct image path mapping
   },
   {
-    name: "Dr. Fatema Baker",
-    role: "Dentist",
-    experience: "16 Years Exp.",
-    bio: "Dedicated to delivering patient-centered care, specializing in general dentistry and ensuring a comfortable and positive experience for all patients.",
-    image: "/images/dr-fatema-baker.png"
-  },
-  {
-    name: "Dr. Vakta Tanna",
-    role: "Dentist",
-    experience: "18 Years Exp.",
-    bio: "Accomplished in a wide range of dental procedures, focusing on achieving excellent and lasting results with the highest standards of oral health.",
-    image: "/images/dr-vakta-tanna.png"
-  },
-  {
-    name: "Dr. Prashant Mall",
-    role: "Dentist",
-    experience: "18 Years Exp.",
-    bio: "Offers expert dental consultations and high-quality treatment solutions, prioritizing precision and patient well-being in every procedure.",
-    image: "/images/dr-prashant-mall.png"
-  },
-  {
-    name: "Dr. Carynn Doulton",
-    role: "Dentist",
-    experience: "5 Years Exp.",
-    bio: "Passionate about modern and gentle dental solutions, staying current with the latest techniques to ensure the best possible care.",
-    image: "/images/dr-carynn-doulton.png"
+    name: "Dr. Alda Davis",
+    role: "The Curator",
+    experience: "Aesthetic & Restorative Dentist",
+    bio: "Where engineering meets emotion. Dr. Alda creates smiles that feel inevitable, not manufactured. With a focus on Biomimetic Restorations, she rebuilds teeth layer by layer, ensuring they function as nature intended while looking effortlessly beautiful. She curates confidence.",
+    image: "/images/dr-alda.png"
   }
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS = [
   {
-    id: '1',
-    quote: "I didn’t know a dentist could feel this premium and comforting. It felt more like a spa visit than a medical procedure.",
-    author: "Sarah Jenkins",
-    role: "Corporate Professional",
+    id: 1,
+    quote: "I flew in from Dubai for my smile makeover. It didn't feel like a dental clinic; it felt like a wellness retreat. The attention to microscopic detail is unlike anything I've seen.",
+    author: "Sarah J.",
+    role: "Architect"
   },
   {
-    id: '2',
-    quote: "My daughter actually likes coming here. The environment is so calm, it completely removes the anxiety.",
-    author: "Rajiv Malhotra",
-    role: "Parent",
+    id: 2,
+    quote: "Dr. Bastin saved a tooth three other dentists said needed extraction. His calm precision and the technology he uses are world-class. Truly the architects of the smile.",
+    author: "Rajeev M.",
+    role: "Tech Entrepreneur"
   },
   {
-    id: '3',
-    quote: "Clean, precise, friendly. Dr. Hingorani works with an artist's hand. Five stars without hesitation.",
-    author: "Eleanor Wright",
-    role: "Senior Patient",
-  },
-];
-
-export const DETAILED_SERVICES = [
-  {
-    category: "Restorative",
-    items: ["Root Canal Treatments (RCT)", "Nano-Composite Fillings", "Ceramic Inlays & Onlays", "Full Mouth Rehabilitation"]
-  },
-  {
-    category: "Surgical",
-    items: ["Wisdom Tooth Extraction", "Bone Grafting & Augmentation", "Sinus Lifts", "Immediate Implants"]
-  },
-  {
-    category: "Periodontal",
-    items: ["Laser Gum Contouring", "Deep Cleaning & Polishing", "Gum Depigmentation", "Recession Coverage"]
+    id: 3,
+    quote: "The Biomimetic approach made so much sense to me—why drill away healthy tooth? The result feels exactly like my natural teeth, only stronger.",
+    author: "Elena R.",
+    role: "Fashion Designer"
   }
-];
-
-export const TECHNOLOGIES = [
-  "Intraoral 3D Scanners",
-  "Digital Smile Design (DSD)",
-  "Laser-Assisted Dentistry",
-  "CBCT Imaging",
-  "Air Abrasion Systems",
-  "Painless Injection Tech"
 ];
 
 export const CONTACT_INFO = {
-  phone: '+91 98765 43210',
-  email: 'hello@dentalkraft.com',
+  phone: '+91 9567 124 888',
+  email: 'care@rootsandco.com',
   address: {
-    line1: 'Lane 5, Koregaon Park',
-    line2: 'Pune, 411001',
-    full: 'Lane 5, Koregaon Park, Pune, 411001'
+    line1: 'Providence Road',
+    line2: 'Kacheripady, Kochi',
+    full: 'Providence Rd, Opp. Providence Plaza, Kacheripady, Kochi, Kerala 682018'
+  },
+  social: {
+    instagram: "@rootsandco",
+    facebook: "Roots & Co. Dentistry"
   }
 };
+
+export const DETAILED_SERVICES = [
+  // Placeholder for future expansion
+];
+export const TECHNOLOGIES = [
+  // Placeholder
+];
